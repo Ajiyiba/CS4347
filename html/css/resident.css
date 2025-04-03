@@ -1,0 +1,226 @@
+/* Resident Dashboard Specific Styles */
+
+/* Payment Summary Card */
+.payment-summary {
+    padding: 20px 0;
+}
+
+.payment-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.payment-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.payment-card .amount {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.payment-card .due-date {
+    color: var(--gray-color);
+    margin-bottom: 15px;
+}
+
+.payment-status {
+    margin-bottom: 20px;
+}
+
+.btn-pay-now {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+}
+
+/* Payment Methods */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-method-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.method-type {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.method-icon {
+    font-size: 24px;
+}
+
+.method-name {
+    font-weight: 500;
+}
+
+.method-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Lease Status */
+.lease-status {
+    padding: 10px 0;
+}
+
+.lease-status p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Tabs Navigation for the Forms */
+.action-tabs .nav-tabs {
+    list-style: none;
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+.action-tabs .nav-tabs li {
+    margin-right: 5px;
+}
+
+.action-tabs .nav-tabs li a {
+    display: block;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    color: var(--gray-color);
+}
+
+.action-tabs .nav-tabs li.active a {
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    border-bottom-color: white;
+    background-color: white;
+}
+
+.action-tabs .tab-content {
+    padding: 20px 0;
+}
+
+.action-tabs .tab-pane {
+    display: none;
+}
+
+.action-tabs .tab-pane.active {
+    display: block;
+}
+
+/* Lease Details */
+.lease-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.detail-group {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-group:last-child {
+    border-bottom: none;
+}
+
+.detail-group h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.detail-item {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-label {
+    font-weight: 600;
+    margin-right: 10px;
+    flex: 0 0 150px;
+}
+
+.detail-value {
+    flex: 1;
+    min-width: 200px;
+}
+
+.document-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.document-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Status styles */
+.status-success {
+    background-color: rgba(92, 184, 92, 0.2);
+    color: var(--success-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .detail-item {
+        flex-direction: column;
+    }
+    
+    .detail-label {
+        margin-bottom: 5px;
+    }
+    
+    .payment-method-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .method-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .action-tabs .nav-tabs {
+        flex-direction: column;
+        border-bottom: none;
+    }
+    
+    .action-tabs .nav-tabs li {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    .action-tabs .nav-tabs li a {
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+} 
