@@ -37,13 +37,19 @@ A web-based property management system that allows both employees and residents 
      │   ├── main.js
      │   └── resident.js
      ├── employee/
+     │   ├── add-employee.html
+     │   ├── add-renter.html
+     │   ├── assign-lease.html
+     │   ├── commission-contractor.html
+     │   ├── create-project.html
      │   ├── dashboard.html
      │   ├── login.html
      │   └── register.html
      ├── resident/
      │   ├── dashboard.html
      │   ├── login.html
-     │   └── register.html
+     │   ├── register.html
+     │   └── report-issue.html
      └── index.html
      ```
 
@@ -77,6 +83,10 @@ A web-based property management system that allows both employees and residents 
    - Communicate with residents
    - Access and manage documents
    - Generate reports
+   - Add new employees and residents
+   - Assign leases to residents
+   - Create development projects
+   - Commission contractors for projects
 
 ### For Residents
 
@@ -102,6 +112,8 @@ A web-based property management system that allows both employees and residents 
    - Access important documents
    - Communicate with management
    - Manage your account details
+   - View lease information
+   - Make rent payments
 
 ## Security
 
