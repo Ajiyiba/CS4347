@@ -12,51 +12,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
         form.addEventListener('submit', function(event) {
+            let valid = true;
+            
+            // Check required fields
             const requiredFields = form.querySelectorAll('[required]');
-            let isValid = true;
-
             requiredFields.forEach(field => {
                 if (!field.value.trim()) {
-                    isValid = false;
+                    valid = false;
                     field.classList.add('error');
-                    
-                    // Create or update error message
-                    let errorMsg = field.nextElementSibling;
-                    if (!errorMsg || !errorMsg.classList.contains('error-message')) {
-                        errorMsg = document.createElement('div');
-                        errorMsg.classList.add('error-message');
-                        field.parentNode.insertBefore(errorMsg, field.nextSibling);
-                    }
-                    errorMsg.textContent = 'This field is required';
                 } else {
                     field.classList.remove('error');
-                    const errorMsg = field.nextElementSibling;
-                    if (errorMsg && errorMsg.classList.contains('error-message')) {
-                        errorMsg.remove();
-                    }
                 }
             });
-
-            // Email validation
-            const emailFields = form.querySelectorAll('input[type="email"]');
-            emailFields.forEach(field => {
-                if (field.value.trim() && !validateEmail(field.value)) {
-                    isValid = false;
-                    field.classList.add('error');
-                    
-                    // Create or update error message
-                    let errorMsg = field.nextElementSibling;
-                    if (!errorMsg || !errorMsg.classList.contains('error-message')) {
-                        errorMsg = document.createElement('div');
-                        errorMsg.classList.add('error-message');
-                        field.parentNode.insertBefore(errorMsg, field.nextSibling);
-                    }
-                    errorMsg.textContent = 'Please enter a valid email address';
+            
+            // Check password confirmation
+            const password = form.querySelector('#password');
+            const confirmPassword = form.querySelector('#confirm-password');
+            if (password && confirmPassword) {
+                if (password.value !== confirmPassword.value) {
+                    valid = false;
+                    confirmPassword.classList.add('error');
+                    alert('Passwords do not match!');
+                } else {
+                    confirmPassword.classList.remove('error');
                 }
-            });
-
-            if (!isValid) {
+            }
+            
+            if (!valid) {
                 event.preventDefault();
+                alert('Please check the form and try again.');
             }
         });
     });
@@ -162,9 +146,15 @@ function initializeSearch() {
 // Show/hide password toggle
 function togglePasswordVisibility(inputId) {
     const passwordInput = document.getElementById(inputId);
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
     } else {
-        passwordInput.type = 'password';
+        passwordInput.type = "password";
     }
-} 
+}
+
+// Auto-generate IDs for forms that need it
+document.addEventListener('DOMContentLoaded', function() {
+    // Form field auto-generation functions can be added here
+    // For example, date-related fields for contracts, invoices, etc.
+}); 

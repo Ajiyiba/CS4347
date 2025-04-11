@@ -8,449 +8,120 @@
     <link rel="stylesheet" href="../css/resident.css">
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>Resident Portal</h3>
-                <p>Welcome, Resident</p>
+    <div class="dashboard-container">
+        <header>
+            <div class="header-content">
+                <h1>Property Management System</h1>
+                <div class="user-info">
+                    <span>Welcome, Resident</span>
+                    <a href="login.html" class="btn btn-small">Logout</a>
+                </div>
             </div>
-            <ul class="sidebar-menu">
-                <li><a href="#" class="tab-link active" data-tab="payment-portal-tab">Payment Portal</a></li>
-                <li><a href="#" class="tab-link" data-tab="lease-actions-tab">Renew/Cancel Lease</a></li>
-                <li><a href="#" class="tab-link" data-tab="maintenance-tab">Maintenance Requests</a></li>
-                <li><a href="#" class="tab-link" data-tab="lease-details-tab">Lease Details</a></li>
-                <li><a href="login.html">Logout</a></li>
+        </header>
+        
+        <nav class="dashboard-nav">
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#payments">Payment Portal</a></li>
+                <li><a href="#leases">Renew/Cancel Lease</a></li>
+                <li><a href="#maintenance">Maintenance Requests</a></li>
+                <li><a href="#details">Lease Details</a></li>
             </ul>
-        </aside>
-
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Mobile Menu Toggle -->
-            <div class="menu-toggle">☰</div>
+        </nav>
+        
+        <main class="dashboard-main">
+            <section class="dashboard-section">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <a href="report-issue.html" class="action-card">
+                        <div class="action-icon">🔧</div>
+                        <h3>Report Issue</h3>
+                        <p>Submit a maintenance request</p>
+                    </a>
+                    <a href="#make-payment" class="action-card">
+                        <div class="action-icon">💰</div>
+                        <h3>Make Payment</h3>
+                        <p>Pay your monthly rent</p>
+                    </a>
+                    <a href="#view-documents" class="action-card">
+                        <div class="action-icon">📄</div>
+                        <h3>View Documents</h3>
+                        <p>Access lease and important documents</p>
+                    </a>
+                    <a href="#message-management" class="action-card">
+                        <div class="action-icon">✉️</div>
+                        <h3>Message Management</h3>
+                        <p>Contact property management</p>
+                    </a>
+                </div>
+            </section>
             
-            <!-- Payment Portal Tab -->
-            <div id="payment-portal-tab" class="tab-content active">
-                <div class="dashboard-header">
-                    <h1>Payment Portal</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Payment Summary</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="payment-summary">
-                            <div class="payment-card">
-                                <h3>Current Balance</h3>
-                                <p class="amount">$1,200.00</p>
-                                <p class="due-date">Due by: May 1, 2023</p>
-                                <div class="payment-status">
-                                    <span class="status status-pending">Pending</span>
-                                </div>
-                                <button class="btn btn-primary btn-pay-now">Pay Now</button>
-                            </div>
+            <section class="dashboard-section">
+                <h2>Next Payment</h2>
+                <div class="payment-info">
+                    <div class="payment-card">
+                        <div class="payment-amount">$1,200.00</div>
+                        <div class="payment-details">
+                            <p class="payment-date">Due: May 1, 2025</p>
+                            <p class="payment-status">Status: <span class="status-upcoming">Upcoming</span></p>
                         </div>
+                        <button class="btn btn-primary">Pay Now</button>
                     </div>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Payment History</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Description</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Apr 1, 2023</td>
-                                        <td>Monthly Rent</td>
-                                        <td>$1,200.00</td>
-                                        <td><span class="status status-paid">Paid</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Receipt</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mar 1, 2023</td>
-                                        <td>Monthly Rent</td>
-                                        <td>$1,200.00</td>
-                                        <td><span class="status status-paid">Paid</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Receipt</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Feb 1, 2023</td>
-                                        <td>Monthly Rent</td>
-                                        <td>$1,200.00</td>
-                                        <td><span class="status status-paid">Paid</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Receipt</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Payment Methods</h2>
-                        <div>
-                            <button class="btn btn-primary">Add Payment Method</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="payment-methods">
-                            <div class="payment-method-card">
-                                <div class="method-type">
-                                    <span class="method-icon">💳</span>
-                                    <span class="method-name">Visa ending in 4321</span>
-                                </div>
-                                <div class="method-actions">
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
-                            <div class="payment-method-card">
-                                <div class="method-type">
-                                    <span class="method-icon">🏦</span>
-                                    <span class="method-name">Bank Account ending in 6789</span>
-                                </div>
-                                <div class="method-actions">
-                                    <button class="btn btn-primary">Edit</button>
-                                    <button class="btn btn-danger">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
             
-            <!-- Renew/Cancel Lease Tab -->
-            <div id="lease-actions-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Renew or Cancel Your Lease</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Lease Status</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="lease-status">
-                            <p><strong>Current Lease End Date:</strong> December 31, 2023</p>
-                            <p><strong>Days Remaining:</strong> 245</p>
-                            <p><strong>Renewal Notice Required:</strong> 60 days</p>
+            <section class="dashboard-section">
+                <h2>Recent Maintenance Requests</h2>
+                <div class="maintenance-list">
+                    <div class="maintenance-card">
+                        <div class="maintenance-icon">🚿</div>
+                        <div class="maintenance-details">
+                            <h4>Plumbing Issue</h4>
+                            <p>Leaky faucet in bathroom</p>
+                            <p class="maintenance-date">Reported: April 15, 2025</p>
+                            <p class="maintenance-status">Status: <span class="status-in-progress">In Progress</span></p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Submit a Request</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="action-tabs">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#renew-form" data-toggle="tab">Renew Lease</a></li>
-                                <li><a href="#cancel-form" data-toggle="tab">Cancel Lease</a></li>
-                            </ul>
-                            
-                            <div class="tab-content">
-                                <div id="renew-form" class="tab-pane active">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="renewal-term">Renewal Term</label>
-                                            <select id="renewal-term" class="form-control" required>
-                                                <option value="">Select Term</option>
-                                                <option value="6">6 Months</option>
-                                                <option value="12">12 Months</option>
-                                                <option value="18">18 Months</option>
-                                                <option value="24">24 Months</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="renewal-date">Desired Start Date</label>
-                                            <input type="date" id="renewal-date" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="renewal-notes">Additional Notes</label>
-                                            <textarea id="renewal-notes" class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Submit Renewal Request</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                
-                                <div id="cancel-form" class="tab-pane">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="cancel-date">Move-out Date</label>
-                                            <input type="date" id="cancel-date" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cancel-reason">Reason for Cancellation</label>
-                                            <select id="cancel-reason" class="form-control" required>
-                                                <option value="">Select Reason</option>
-                                                <option value="moving">Moving to a new area</option>
-                                                <option value="buying">Buying a home</option>
-                                                <option value="financial">Financial reasons</option>
-                                                <option value="dissatisfied">Dissatisfied with property/service</option>
-                                                <option value="other">Other</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cancel-notes">Additional Notes</label>
-                                            <textarea id="cancel-notes" class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-danger">Submit Cancellation Request</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                    <div class="maintenance-card">
+                        <div class="maintenance-icon">🔌</div>
+                        <div class="maintenance-details">
+                            <h4>Electrical Issue</h4>
+                            <p>Kitchen outlet not working</p>
+                            <p class="maintenance-date">Reported: April 10, 2025</p>
+                            <p class="maintenance-status">Status: <span class="status-completed">Completed</span></p>
                         </div>
                     </div>
+                    <a href="report-issue.html" class="report-issue-link">Report a New Issue</a>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Request History</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Date Submitted</th>
-                                        <th>Type</th>
-                                        <th>Details</th>
-                                        <th>Status</th>
-                                        <th>Response</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mar 15, 2023</td>
-                                        <td>Renewal</td>
-                                        <td>12 months starting Jan 1, 2024</td>
-                                        <td><span class="status status-pending">Pending</span></td>
-                                        <td>Awaiting review</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
             
-            <!-- Maintenance Requests Tab -->
-            <div id="maintenance-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Maintenance Requests</h1>
+            <section class="dashboard-section">
+                <h2>Lease Information</h2>
+                <div class="lease-info">
+                    <div class="lease-detail">
+                        <h4>Apartment</h4>
+                        <p>Unit 303, Building C</p>
+                    </div>
+                    <div class="lease-detail">
+                        <h4>Lease Term</h4>
+                        <p>Jan 1, 2025 - Dec 31, 2025</p>
+                    </div>
+                    <div class="lease-detail">
+                        <h4>Monthly Rent</h4>
+                        <p>$1,200.00</p>
+                    </div>
+                    <div class="lease-detail">
+                        <h4>Security Deposit</h4>
+                        <p>$1,200.00</p>
+                    </div>
+                    <div class="lease-detail">
+                        <h4>Renewal Deadline</h4>
+                        <p>Oct 1, 2025</p>
+                    </div>
+                    <a href="#lease-details" class="view-details-link">View Full Lease Details</a>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Submit a Maintenance Request</h2>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="request-category">Category</label>
-                                <select id="request-category" class="form-control" required>
-                                    <option value="">Select Category</option>
-                                    <option value="plumbing">Plumbing</option>
-                                    <option value="electrical">Electrical</option>
-                                    <option value="appliance">Appliance</option>
-                                    <option value="hvac">HVAC</option>
-                                    <option value="structural">Structural</option>
-                                    <option value="pest">Pest Control</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="request-priority">Priority</label>
-                                <select id="request-priority" class="form-control" required>
-                                    <option value="">Select Priority</option>
-                                    <option value="emergency">Emergency (24 hours)</option>
-                                    <option value="urgent">Urgent (1-2 days)</option>
-                                    <option value="normal">Normal (3-5 days)</option>
-                                    <option value="low">Low (1-2 weeks)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="request-description">Description</label>
-                                <textarea id="request-description" class="form-control" rows="5" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="request-access">Permission to Enter</label>
-                                <select id="request-access" class="form-control" required>
-                                    <option value="yes">Yes, permission to enter when I'm not home</option>
-                                    <option value="no">No, I need to be present</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="request-photo">Upload Photo (Optional)</label>
-                                <input type="file" id="request-photo" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Submit Request</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Maintenance Request History</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Category</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Apr 15, 2023</td>
-                                        <td>Plumbing</td>
-                                        <td>Leaking faucet in kitchen</td>
-                                        <td><span class="status status-pending">Pending</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mar 10, 2023</td>
-                                        <td>Electrical</td>
-                                        <td>Bathroom light fixture not working</td>
-                                        <td><span class="status status-success">Completed</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Feb 20, 2023</td>
-                                        <td>HVAC</td>
-                                        <td>Heater not working properly</td>
-                                        <td><span class="status status-success">Completed</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Lease Details Tab -->
-            <div id="lease-details-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Lease Details</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Lease Information</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="lease-details">
-                            <div class="detail-group">
-                                <h3>Property Information</h3>
-                                <div class="detail-item">
-                                    <span class="detail-label">Property Address:</span>
-                                    <span class="detail-value">123 Main Street, Apt A101, Anytown, USA 12345</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Property Type:</span>
-                                    <span class="detail-value">2 Bedroom, 1 Bathroom Apartment</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Square Footage:</span>
-                                    <span class="detail-value">850 sq ft</span>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-group">
-                                <h3>Lease Terms</h3>
-                                <div class="detail-item">
-                                    <span class="detail-label">Lease Start Date:</span>
-                                    <span class="detail-value">January 1, 2023</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Lease End Date:</span>
-                                    <span class="detail-value">December 31, 2023</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Monthly Rent:</span>
-                                    <span class="detail-value">$1,200.00</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Security Deposit:</span>
-                                    <span class="detail-value">$1,200.00</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Late Fee:</span>
-                                    <span class="detail-value">$50.00 after 5th day of month</span>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-group">
-                                <h3>Residents</h3>
-                                <div class="detail-item">
-                                    <span class="detail-label">Primary Resident:</span>
-                                    <span class="detail-value">John Doe</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Additional Residents:</span>
-                                    <span class="detail-value">None</span>
-                                </div>
-                            </div>
-                            
-                            <div class="detail-group">
-                                <h3>Documents</h3>
-                                <div class="document-list">
-                                    <div class="document-item">
-                                        <span class="document-name">Lease Agreement</span>
-                                        <button class="btn btn-primary">Download</button>
-                                    </div>
-                                    <div class="document-item">
-                                        <span class="document-name">Move-in Inspection</span>
-                                        <button class="btn btn-primary">Download</button>
-                                    </div>
-                                    <div class="document-item">
-                                        <span class="document-name">Property Rules & Regulations</span>
-                                        <button class="btn btn-primary">Download</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 
     <script src="../js/main.js"></script>

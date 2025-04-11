@@ -7,585 +7,121 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>Employee Portal</h3>
-                <p>Welcome, Employee</p>
+    <div class="dashboard-container">
+        <header>
+            <div class="header-content">
+                <h1>Property Management System</h1>
+                <div class="user-info">
+                    <span>Welcome, Employee</span>
+                    <a href="login.html" class="btn btn-small">Logout</a>
+                </div>
             </div>
-            <ul class="sidebar-menu">
-                <li><a href="#" class="tab-link active" data-tab="payments-tab">Payments</a></li>
-                <li><a href="#" class="tab-link" data-tab="requests-tab">Resident Requests</a></li>
-                <li><a href="#" class="tab-link" data-tab="manage-residents-tab">Manage Residents</a></li>
-                <li><a href="#" class="tab-link" data-tab="commissions-tab">Commissions</a></li>
-                <li><a href="#" class="tab-link" data-tab="apartments-tab">Apartments</a></li>
-                <li><a href="#" class="tab-link" data-tab="manage-employees-tab">Manage Employees</a></li>
-                <li><a href="login.html">Logout</a></li>
+        </header>
+        
+        <nav class="dashboard-nav">
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#payments">Payments</a></li>
+                <li><a href="#requests">Resident Requests</a></li>
+                <li><a href="#residents">Manage Residents</a></li>
+                <li><a href="#commissions">Commissions</a></li>
+                <li><a href="#apartments">Apartments</a></li>
+                <li><a href="#employees">Manage Employees</a></li>
+                <li><a href="#projects">Development Projects</a></li>
             </ul>
-        </aside>
-
-        <!-- Main Content Area -->
-        <div class="main-content">
-            <!-- Location Selector -->
-            <div class="location-selector">
-                <label for="location">Select Location:</label>
-                <select id="location" class="form-control">
-                    <option value="all">All Locations</option>
-                    <option value="location1">Location 1</option>
-                    <option value="location2">Location 2</option>
-                    <option value="location3">Location 3</option>
-                </select>
-            </div>
-
-            <!-- Payments Tab -->
-            <div id="payments-tab" class="tab-content active">
-                <div class="dashboard-header">
-                    <h1>Payments</h1>
+        </nav>
+        
+        <main class="dashboard-main">
+            <section class="dashboard-section">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <a href="add-employee.html" class="action-card">
+                        <div class="action-icon">👤</div>
+                        <h3>Add New Employee</h3>
+                        <p>Create a new employee record</p>
+                    </a>
+                    <a href="add-renter.html" class="action-card">
+                        <div class="action-icon">🏠</div>
+                        <h3>Add New Renter</h3>
+                        <p>Create a new resident record</p>
+                    </a>
+                    <a href="assign-lease.html" class="action-card">
+                        <div class="action-icon">📝</div>
+                        <h3>Assign Lease</h3>
+                        <p>Create contract for resident</p>
+                    </a>
+                    <a href="create-project.html" class="action-card">
+                        <div class="action-icon">🏗️</div>
+                        <h3>Create Project</h3>
+                        <p>Register development project</p>
+                    </a>
+                    <a href="commission-contractor.html" class="action-card">
+                        <div class="action-icon">🔨</div>
+                        <h3>Commission Contractor</h3>
+                        <p>Assign project to external company</p>
+                    </a>
                 </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Payment Management</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-box">
-                                <input type="text" class="search-input" data-table="payments-table" placeholder="Search payments...">
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="status" data-table="payments-table">
-                                    <option value="all">All Status</option>
-                                    <option value="Paid">Paid</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Overdue">Overdue</option>
-                                </select>
-                            </div>
+            </section>
+            
+            <section class="dashboard-section">
+                <h2>Recent Activities</h2>
+                <div class="recent-activities">
+                    <div class="activity-card">
+                        <div class="activity-icon">🔔</div>
+                        <div class="activity-details">
+                            <h4>New Maintenance Request</h4>
+                            <p>Apartment 203 reported plumbing issue</p>
+                            <span class="activity-time">10 minutes ago</span>
                         </div>
-                        
-                        <div class="table-container">
-                            <table id="payments-table" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Resident</th>
-                                        <th>Apartment</th>
-                                        <th>Amount</th>
-                                        <th>Due Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John Doe</td>
-                                        <td>A101</td>
-                                        <td>$1,200.00</td>
-                                        <td>2023-05-01</td>
-                                        <td data-filter="status"><span class="status status-paid">Paid</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jane Smith</td>
-                                        <td>B202</td>
-                                        <td>$950.00</td>
-                                        <td>2023-05-05</td>
-                                        <td data-filter="status"><span class="status status-pending">Pending</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Johnson</td>
-                                        <td>C303</td>
-                                        <td>$1,500.00</td>
-                                        <td>2023-04-30</td>
-                                        <td data-filter="status"><span class="status status-overdue">Overdue</span></td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">💰</div>
+                        <div class="activity-details">
+                            <h4>Payment Received</h4>
+                            <p>John Doe paid monthly rent</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon">📋</div>
+                        <div class="activity-details">
+                            <h4>Lease Signed</h4>
+                            <p>New lease for Apartment 105 signed</p>
+                            <span class="activity-time">Yesterday</span>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Resident Requests Tab -->
-            <div id="requests-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Resident Requests</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>All Requests</h2>
-                        <div>
-                            <button class="btn btn-primary">New Request</button>
-                        </div>
+            </section>
+            
+            <section class="dashboard-section">
+                <h2>System Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3>42</h3>
+                        <p>Total Units</p>
                     </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-box">
-                                <input type="text" class="search-input" data-table="requests-table" placeholder="Search requests...">
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="type" data-table="requests-table">
-                                    <option value="all">All Types</option>
-                                    <option value="Renewal">Renewal</option>
-                                    <option value="Cancellation">Cancellation</option>
-                                    <option value="Maintenance">Maintenance</option>
-                                </select>
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="status" data-table="requests-table">
-                                    <option value="all">All Status</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="In Progress">In Progress</option>
-                                    <option value="Completed">Completed</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <table id="requests-table" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Resident</th>
-                                        <th>Apartment</th>
-                                        <th>Request Type</th>
-                                        <th>Description</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John Doe</td>
-                                        <td>A101</td>
-                                        <td data-filter="type">Maintenance</td>
-                                        <td>Leaking faucet in kitchen</td>
-                                        <td>2023-05-01</td>
-                                        <td data-filter="status">Pending</td>
-                                        <td>
-                                            <button class="btn btn-primary">Respond</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jane Smith</td>
-                                        <td>B202</td>
-                                        <td data-filter="type">Renewal</td>
-                                        <td>Lease renewal request</td>
-                                        <td>2023-04-28</td>
-                                        <td data-filter="status">In Progress</td>
-                                        <td>
-                                            <button class="btn btn-primary">Respond</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Johnson</td>
-                                        <td>C303</td>
-                                        <td data-filter="type">Cancellation</td>
-                                        <td>Lease cancellation request</td>
-                                        <td>2023-04-25</td>
-                                        <td data-filter="status">Completed</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="overview-card">
+                        <h3>35</h3>
+                        <p>Occupied Units</p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>7</h3>
+                        <p>Vacant Units</p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>12</h3>
+                        <p>Pending Requests</p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>3</h3>
+                        <p>Active Projects</p>
                     </div>
                 </div>
-            </div>
-
-            <!-- Manage Residents Tab -->
-            <div id="manage-residents-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Manage Residents</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Resident Management</h2>
-                        <div>
-                            <button class="btn btn-primary">Add New Resident</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-box">
-                                <input type="text" class="search-input" data-table="residents-table" placeholder="Search residents...">
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="status" data-table="residents-table">
-                                    <option value="all">All Status</option>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <table id="residents-table" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Apartment</th>
-                                        <th>Lease End</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>John Doe</td>
-                                        <td>john.doe@example.com</td>
-                                        <td>(123) 456-7890</td>
-                                        <td>A101</td>
-                                        <td>2023-12-31</td>
-                                        <td data-filter="status">Active</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jane Smith</td>
-                                        <td>jane.smith@example.com</td>
-                                        <td>(234) 567-8901</td>
-                                        <td>B202</td>
-                                        <td>2023-10-15</td>
-                                        <td data-filter="status">Active</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Michael Johnson</td>
-                                        <td>michael.johnson@example.com</td>
-                                        <td>(345) 678-9012</td>
-                                        <td>C303</td>
-                                        <td>2023-08-20</td>
-                                        <td data-filter="status">Inactive</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Commissions Tab -->
-            <div id="commissions-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Commissions</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Commission Management</h2>
-                        <div>
-                            <button class="btn btn-primary">New Commission Request</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-box">
-                                <input type="text" class="search-input" data-table="commissions-table" placeholder="Search commissions...">
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="status" data-table="commissions-table">
-                                    <option value="all">All Status</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Approved">Approved</option>
-                                    <option value="Rejected">Rejected</option>
-                                    <option value="Paid">Paid</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <table id="commissions-table" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Employee</th>
-                                        <th>Amount</th>
-                                        <th>Related To</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>COM001</td>
-                                        <td>Sarah Jones</td>
-                                        <td>$250.00</td>
-                                        <td>New Lease - A101</td>
-                                        <td>2023-05-01</td>
-                                        <td data-filter="status">Approved</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>COM002</td>
-                                        <td>David Wilson</td>
-                                        <td>$150.00</td>
-                                        <td>Lease Renewal - B202</td>
-                                        <td>2023-04-28</td>
-                                        <td data-filter="status">Pending</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>COM003</td>
-                                        <td>Emma Brown</td>
-                                        <td>$300.00</td>
-                                        <td>New Lease - D404</td>
-                                        <td>2023-04-25</td>
-                                        <td data-filter="status">Paid</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Apartments Tab -->
-            <div id="apartments-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Apartments</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Apartment Management</h2>
-                        <div>
-                            <button class="btn btn-primary">Add New Apartment</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-box">
-                                <input type="text" class="search-input" data-table="apartments-table" placeholder="Search apartments...">
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="status" data-table="apartments-table">
-                                    <option value="all">All Status</option>
-                                    <option value="Occupied">Occupied</option>
-                                    <option value="Vacant">Vacant</option>
-                                    <option value="Maintenance">Maintenance</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <table id="apartments-table" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Number</th>
-                                        <th>Building</th>
-                                        <th>Bedrooms</th>
-                                        <th>Bathrooms</th>
-                                        <th>Size (sq ft)</th>
-                                        <th>Rent</th>
-                                        <th>Status</th>
-                                        <th>Current Occupant</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>A101</td>
-                                        <td>Building A</td>
-                                        <td>2</td>
-                                        <td>1</td>
-                                        <td>850</td>
-                                        <td>$1,200.00</td>
-                                        <td data-filter="status">Occupied</td>
-                                        <td>John Doe</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>B202</td>
-                                        <td>Building B</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>650</td>
-                                        <td>$950.00</td>
-                                        <td data-filter="status">Occupied</td>
-                                        <td>Jane Smith</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>C303</td>
-                                        <td>Building C</td>
-                                        <td>3</td>
-                                        <td>2</td>
-                                        <td>1100</td>
-                                        <td>$1,500.00</td>
-                                        <td data-filter="status">Occupied</td>
-                                        <td>Michael Johnson</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>D404</td>
-                                        <td>Building D</td>
-                                        <td>2</td>
-                                        <td>2</td>
-                                        <td>900</td>
-                                        <td>$1,300.00</td>
-                                        <td data-filter="status">Vacant</td>
-                                        <td>-</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>E505</td>
-                                        <td>Building E</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>600</td>
-                                        <td>$900.00</td>
-                                        <td data-filter="status">Maintenance</td>
-                                        <td>-</td>
-                                        <td>
-                                            <button class="btn btn-primary">Details</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Manage Employees Tab -->
-            <div id="manage-employees-tab" class="tab-content">
-                <div class="dashboard-header">
-                    <h1>Manage Employees</h1>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Employee Management</h2>
-                        <div>
-                            <button class="btn btn-primary">Add New Employee</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="search-filter">
-                            <div class="search-box">
-                                <input type="text" class="search-input" data-table="employees-table" placeholder="Search employees...">
-                            </div>
-                            <div class="filter-dropdown">
-                                <select class="filter-select" data-filter="role" data-table="employees-table">
-                                    <option value="all">All Roles</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="Manager">Manager</option>
-                                    <option value="Agent">Agent</option>
-                                    <option value="Maintenance">Maintenance</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="table-container">
-                            <table id="employees-table" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Role</th>
-                                        <th>Location</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Sarah Jones</td>
-                                        <td>sarah.jones@example.com</td>
-                                        <td>(123) 456-7890</td>
-                                        <td data-filter="role">Manager</td>
-                                        <td>Location 1</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <button class="btn btn-primary">Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>David Wilson</td>
-                                        <td>david.wilson@example.com</td>
-                                        <td>(234) 567-8901</td>
-                                        <td data-filter="role">Agent</td>
-                                        <td>Location 2</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <button class="btn btn-primary">Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Emma Brown</td>
-                                        <td>emma.brown@example.com</td>
-                                        <td>(345) 678-9012</td>
-                                        <td data-filter="role">Admin</td>
-                                        <td>All Locations</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <button class="btn btn-primary">Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Robert Lee</td>
-                                        <td>robert.lee@example.com</td>
-                                        <td>(456) 789-0123</td>
-                                        <td data-filter="role">Maintenance</td>
-                                        <td>Location 3</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <button class="btn btn-primary">Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
 
     <script src="../js/main.js"></script>
+    <script src="../js/employee.js"></script>
 </body>
 </html> 
